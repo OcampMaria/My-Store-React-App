@@ -7,7 +7,6 @@ import './App.css';
 import {Navbar} from './components/navbar/Navbar';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bulma/css/bulma.min.css';
-import {ItemCard} from './components/itemsList/ItemCard'; 
 
 
 function App() {
@@ -15,9 +14,13 @@ function App() {
   
   fire.auth().onAuthStateChanged((user) => {
     return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
-});
+  });
 
-console.log('logged in?', isLoggedIn);
+  console.log('logged in?', isLoggedIn);
+
+  const signOut = () => {
+  fire.auth().signOut()
+  };
 
 
 
@@ -37,7 +40,9 @@ console.log('logged in?', isLoggedIn);
           ) 
           : (
             <>
-              Hello World!
+            <span onClick={signOut}>
+              <a href="#">Sign out</a>
+            </span>
             </>
           )}
       </Router>
