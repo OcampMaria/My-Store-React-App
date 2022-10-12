@@ -1,8 +1,9 @@
 import React from 'react';
-import ItemCard from './ItemCard'
-import orange from '../../Assets/orange.png'
+import ItemCard from './ItemCard';
+import orange from '../../Assets/orange.png';
+import ItemCount from './itemCount';
 
-const ItemListContainer = () => {
+export const ItemListContainer = () => {
     const products = [
         {id:1, 
         name:'PanDulce Chocolate', 
@@ -38,6 +39,7 @@ const ItemListContainer = () => {
     return(
         <div>
            {array}
+           <ItemCount stock={5}/>
         </div>
     )
 }
